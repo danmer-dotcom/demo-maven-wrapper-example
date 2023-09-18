@@ -83,28 +83,13 @@ limitations under the License.
   <build>
     <plugins>
       <plugin>
-        <groupId>org.owasp</groupId>
-        <artifactId>dependency-track-maven-plugin</artifactId>
-        <!-- La versione sarà automaticamente la più recente disponibile -->
-        <executions>
-          <execution>
-            <goals>
-              <goal>audit</goal>
-            </goals>
-            <configuration>
-              <!-- Configurazioni specifiche del plugin, ad esempio il formato SBOM -->
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
         <groupId>com.rimerosolutions.maven.plugins</groupId>
         <artifactId>wrapper-maven-plugin</artifactId>
         <version>0.0.5-SNAPSHOT</version>
         <configuration>
-          <verifyDownload>true</verifyDownload>
-          <checksumAlgorithm>MD5</checksumAlgorithm>
-          <mavenVersion>3.2.5</mavenVersion>
+	    <verifyDownload>true</verifyDownload>
+	    <checksumAlgorithm>MD5</checksumAlgorithm>
+	    <mavenVersion>3.2.5</mavenVersion>
           <!-- optional wrapper jar output folder -->
           <!--
               <wrapperDirectory>${basedir}/maven</wrapperDirectory>
