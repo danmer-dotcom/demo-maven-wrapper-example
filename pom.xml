@@ -85,7 +85,7 @@ limitations under the License.
       <plugin>
         <groupId>org.owasp</groupId>
         <artifactId>dependency-track-maven-plugin</artifactId>
-        <!-- La versione sarà automaticamente la più recente disponibile -->
+        <version>3.3.0</version> <!-- Aggiornato alla versione 3.3.0 -->
         <executions>
           <execution>
             <goals>
