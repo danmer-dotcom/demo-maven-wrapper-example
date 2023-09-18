@@ -83,36 +83,24 @@ limitations under the License.
   <build>
     <plugins>
       <plugin>
-        <groupId>org.owasp</groupId>
-        <artifactId>dependency-track-maven-plugin</artifactId>
-        <version>1.5.0</version> <!-- Aggiornato alla versione 3.3.0 -->
-        <executions>
-          <execution>
-            <goals>
-              <goal>audit</goal>
-            </goals>
-            <configuration>
-              <!-- Configurazioni specifiche del plugin, ad esempio il formato SBOM -->
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
         <groupId>com.rimerosolutions.maven.plugins</groupId>
         <artifactId>wrapper-maven-plugin</artifactId>
         <version>0.0.5-SNAPSHOT</version>
         <configuration>
-          <verifyDownload>true</verifyDownload>
-          <checksumAlgorithm>MD5</checksumAlgorithm>
-          <mavenVersion>3.2.5</mavenVersion>
-          <!-- optional wrapper jar output folder -->
-          <!--
-              <wrapperDirectory>${basedir}/maven</wrapperDirectory>
-          -->
-          <!-- optional base distribution url -->
-          <!--
-              <baseDistributionUrl>http://mirrors.ibiblio.org/maven2/org/apache/maven/apache-maven/</baseDistributionUrl>
-          -->
+	    <verifyDownload>true</verifyDownload>
+	    <checksumAlgorithm>MD5</checksumAlgorithm>
+	    <mavenVersion>3.2.5</mavenVersion>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>io.github.dependencytrack</groupId>
+        <artifactId>dependency-track-maven-plugin</artifactId>
+        <version>4.3.1</version>
+        <configuration>
+          <apiKey>${dependencyTrackApiKey}</apiKey>
+          <url>${dependencyTrackUrl}</url>
+          <project>${project.artifactId}</project>
+          <version>${project.version}</version>
         </configuration>
       </plugin>
     </plugins>
@@ -123,9 +111,5 @@ limitations under the License.
       <id>sonatype.snapshots</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
     </pluginRepository>
-    <pluginRepository>
-       <id>central</id>
-       <url>https://repo.maven.apache.org/maven2</url>
-     </pluginRepository>
   </pluginRepositories>
 </project>
